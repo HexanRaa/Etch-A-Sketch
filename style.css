@@ -1,17 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10%;
   width: 100vw;
   height: 100vh;
 }
 
 h1 {
-  margin-top: 0;
+  margin: 0;
+}
+
+button {
+  display: block;
+  width: 10vw;
+  height: 4vh;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  background-color: black;
+  color: white;
+  width: 30%;
+  height: 100%;
 }
 
 .board {
-  width: 80%;
-  height: 80%;
+  margin-bottom: 10px;
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
 }

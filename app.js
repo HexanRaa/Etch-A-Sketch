@@ -1,11 +1,25 @@
-const board = document.querySelector(".board");
-board.style.display = "grid";
-board.style.gridTemplateColumns = "repeat(16,1fr)";
-board.style.gridTemplateRows = "repeat(16,1fr)";
+let color = 'black';
 
-for (let i = 0; i < 16 * 16; i++) {
-  const box = document.createElement("div");
-  box.style.backgroundColor = "white";
-  box.style.border = "1px Solid black";
-  board.appendChild(box);
+function boardSize() {
+  const input = prompt('Enter the size of Board');
+  if (input >= 2 && input <= 100) {
+    createBoard(input);
+  } else {
+    alert('Enter a number between 2 and 100 for Board Size');
+  }
+}
+
+function createBoard(size) {
+  const board = document.querySelector('.board');
+  board.style.display = 'grid';
+  board.style.gridTemplateColumns = `repeat(${size},1fr)`;
+  board.style.gridTemplateRows = `repeat(${size},1fr)`;
+
+  for (let i = 0; i < size * size; i++) {
+    const box = document.createElement('div');
+    box.addEventListener('mouseover', () => {
+      box.style.backgroundColor = color;
+    });
+    board.appendChild(box);
+  }
 }
