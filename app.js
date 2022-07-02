@@ -1,4 +1,14 @@
-let color = 'black';
+let color = 'red';
+
+function changeColor(userChoice) {
+  color = userChoice;
+}
+
+function drawingColor() {
+  color === 'random'
+    ? (color = `hsl(${Math.random() * 360},100%,50%)`)
+    : (this.style.backgroundColor = color);
+}
 
 function boardSize() {
   const input = prompt('Enter the size of Board');
@@ -9,6 +19,8 @@ function boardSize() {
   }
 }
 
+createBoard(40);
+
 function createBoard(size) {
   const board = document.querySelector('.board');
   board.style.display = 'grid';
@@ -17,9 +29,8 @@ function createBoard(size) {
 
   for (let i = 0; i < size * size; i++) {
     const box = document.createElement('div');
-    box.addEventListener('mouseover', () => {
-      box.style.backgroundColor = color;
-    });
+    box.addEventListener('mouseover', drawingColor);
+    box.style.backgroundColor = 'white';
     board.appendChild(box);
   }
 }
